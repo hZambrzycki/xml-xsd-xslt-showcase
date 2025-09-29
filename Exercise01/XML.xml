@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<transcript student="A">
+    <subject id="1">
+        <name>Operating Systems</name>
+        <grade>9</grade>
+    </subject>
+    <subject id="2">
+        <name>Programming</name>
+        <grade>10</grade>
+    </subject>
+    <subject id="3">
+        <name>Markup Languages</name>
+        <grade>8</grade>
+    </subject>
+    <subject id="4">
+        <name>Development Environments</name>
+        <grade>7</grade>
+    </subject>
+</transcript>

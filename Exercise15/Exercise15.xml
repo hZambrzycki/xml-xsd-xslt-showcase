@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<matricula>
+    <personal>
+        <dni numero="99223366M"/>
+        <nombre>Juan Pardo Martín</nombre>
+        <titulacion>Ingeniería Informática</titulacion>
+        <curso_academico>2014/2015</curso_academico>
+        <domicilios>
+            <domicilio tipo="familiar">
+                <nombre>C/ Sol no1</nombre>
+            </domicilio>
+            <domicilio tipo="habitual">
+                <nombre>C/Luna no2</nombre>
+            </domicilio>
+        </domicilios>
+    </personal>
+    <personal>
+        <dni numero="99282566L"></dni>
+        <nombre>Pepe Gómez</nombre>
+        <titulacion>Ingeniería Informática</titulacion>
+        <curso_academico>2016/2017</curso_academico>
+        <domicilios>
+            <domicilio tipo="familiar">
+                <nombre>C/ Sol no1</nombre>
+            </domicilio>
+        </domicilios>
+    </personal>
+    <personal>
+        <dni numero="00223366J" />
+        <nombre>Carlos Gutiérrez</nombre>
+        <titulacion>Ingeniería Informática</titulacion>
+        <curso_academico>2014/2015</curso_academico>
+        <domicilios>
+            <domicilio tipo="habitual">
+                <nombre>C/Luna no2</nombre>
+            </domicilio>
+        </domicilios>
+    </personal>
+    <pago>
+        <tipo_matricula>Matrícula Ordinaria</tipo_matricula>
+        <precio moneda="euro">400</precio>
+    </pago>
+</matricula>

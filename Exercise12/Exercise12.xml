@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<personas
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='XSD.xsd'>
+    <persona>
+        <nombre>Antonio</nombre>
+        <apellido>Garrido</apellido>
+        <fechanacimiento>2000-02-10</fechanacimiento>
+        <numerodocumento>21212121</numerodocumento>
+        <trianero>0</trianero>
+    </persona>
+    <persona>
+        <nombre>Martin</nombre>
+        <apellido>Perez</apellido>
+        <fechanacimiento>2000-01-24</fechanacimiento>
+        <numerodocumento>41141</numerodocumento>
+        <trianero>1</trianero>
+    </persona>
+    <persona>
+        <nombre>Ivan</nombre>
+        <apellido>Lopez</apellido>
+        <fechanacimiento>1991-12-23</fechanacimiento>
+        <numerodocumento>2341211</numerodocumento>
+        <trianero>0</trianero>
+    </persona>
+</personas>

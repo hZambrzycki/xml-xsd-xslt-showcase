@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE game_store [
+  <!ELEMENT game_store (game*)>
+  <!ELEMENT game (title, platform+, release, genre)>
+  <!ATTLIST game id ID #REQUIRED
+                 offer CDATA #IMPLIED
+                 similar IDREFS #IMPLIED>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT platform (#PCDATA)>
+  <!ATTLIST platform code NMTOKEN #REQUIRED>
+  <!ELEMENT release EMPTY>
+  <!ATTLIST release date NMTOKEN #REQUIRED>
+  <!ELEMENT genre (#PCDATA)>
+]>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+
+  <xs:element name="tienda_juegos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="juego" type="JuegoType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="JuegoType">
+    <xs:sequence>
+      <xs:element name="titulo" type="xs:string"/>
+      <xs:element name="plataforma" type="PlataformaType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="lanzamiento" type="LanzamientoType"/>
+      <xs:element name="genero" type="GeneroType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+    <xs:attribute name="oferta" type="xs:string" use="optional"/>
+    <!-- lista de IDREF separados por espacio -->
+    <xs:attribute name="similares" type="xs:IDREFS" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="PlataformaType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <!-- "01", "02", ... -->
+        <xs:attribute name="num" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:token">
+              <xs:pattern value="\d{2}"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="LanzamientoType">
+    <!-- fecha ISO: YYYY-MM-DD -->
+    <xs:attribute name="fecha" type="xs:date" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="GeneroType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Acción"/>
+      <xs:enumeration value="Aventuras"/>
+      <xs:enumeration value="Rol"/>
+      <xs:enumeration value="Futbol"/>
+      <xs:enumeration value="Otros"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

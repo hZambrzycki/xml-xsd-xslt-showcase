@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enrollment>
+  <person>
+    <id number="99223366M"/>
+    <name>Juan Pardo Martín</name>
+    <degree>Computer Engineering</degree>
+    <academic_year>2014/2015</academic_year>
+    <addresses>
+      <address type="family">
+        <name>C/ Sol no1</name>
+      </address>
+      <address type="current">
+        <name>C/Luna no2</name>
+      </address>
+    </addresses>
+  </person>
+
+  <person>
+    <id number="99282566L"/>
+    <name>Pepe Gómez</name>
+    <degree>Computer Engineering</degree>
+    <academic_year>2016/2017</academic_year>
+    <addresses>
+      <address type="family">
+        <name>C/ Sol no1</name>
+      </address>
+    </addresses>
+  </person>
+
+  <person>
+    <id number="00223366J"/>
+    <name>Carlos Gutiérrez</name>
+    <degree>Computer Engineering</degree>
+    <academic_year>2014/2015</academic_year>
+    <addresses>
+      <address type="current">
+        <name>C/Luna no2</name>
+      </address>
+    </addresses>
+  </person>
+
+  <payment>
+    <enrollment_type>Regular Enrollment</enrollment_type>
+    <price currency="EUR">400</price>
+  </payment>
+</enrollment>

@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--
+1.
+
+-->
+
+<!--
+<!DOCTYPE reyesEspañoles [
+<!ELEMENT reyesEspañoles (rey|reina)*>
+<!ELEMENT rey (nombre, padre, madre)>
+<!ELEMENT reina (nombre, padre, madre)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT padre (#PCDATA)>
+<!ELEMENT madre (#PCDATA)>
+]>
+<reyesEspañoles>
+<rey>
+<nombre>Felipe III</nombre>
+<padre>Felipe II</padre>
+<madre>Ana de Austria</madre>
+</rey>
+<reina>
+<nombre>Juana la Loca</nombre>
+<padre>Fernando el Católico</padre>
+<madre>Isabel la Católica</madre>
+</reina>
+<rey>
+<nombre>Carlos I</nombre>
+<padre>Felipe el Hermoso</padre>
+<madre>Juan la Loca</madre>
+</rey>
+</reyesEspañoles>
+-->
+
+<!--
+1. > El error esta en la DTD Interna, por lo cual no se puede cambiar el orden de reina, hace falta usar el | y poner el signo fuera.
+
+Reina hay que definirla.
+
+-->
+
+<!-- 2 -->
+
+<!--
+<!DOCTYPE paises [
+<!ELEMENT paises (pais*)>
+<!ELEMENT pais (nombre, unionEuropea?, otan?)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT unionEuropea EMPTY>
+<!ELEMENT otan EMPTY>
+]>
+<paises>
+<pais>
+<nombre>España</nombre>
+<unionEuropea />
+<otan />
+</pais>
+<pais>
+<nombre>Noruega</nombre>
+<otan />
+</pais>
+<pais>
+<nombre>Austria</nombre>
+<unionEuropea />
+</pais>
+</paises>
+
+-->
+
+<!--
+El error esta en que: Nombre al contener caracteres no es empty es un PCDATA, paises al ser la raiz tiene que tener pais *, y tanto union europea como otan pueden aparecer o no, falta la ?
+
+-->
+
+
+<!-- 3, Error dtd no interna -->
+
+<!--
+<!DOCTYPE persona [
+<!ELEMENT persona EMPTY>
+<!ATTLIST persona nombre CDATA #IMPLIED>
+]>
+<persona nombre="Miguel" />
+-->
+<!--
+No esta definido el dni, borrarlo
+-->
+
+
+<!-- 4, Error no DTD INTERNA -->
+
+<!--
+
+<!DOCTYPE pelicula [
+<!ELEMENT pelicula EMPTY>
+<!ATTLIST pelicula titulo CDATA #IMPLIED>
+]>
+<pelicula titulo="La diligencia" />
+
+
+-->
+<!-- Genero no definido, borrarlo -->
+
+
+<!-- 5 "" -->
+
+<!--
+<!DOCTYPE cuadros [
+<!ELEMENT cuadros (cuadro*)>
+<!ELEMENT cuadro EMPTY>
+<!ATTLIST cuadro titulo ID #REQUIRED>
+<!ATTLIST cuadro autor CDATA #REQUIRED>
+]>
+<cuadros>
+<cuadro titulo="Adán_y_Eva" autor="Alberto Durero" />
+<cuadro autor="Lucas Cranach, el viejo" titulo="Adán_y_Eva2" />
+</cuadros>
+-->
+
+<!--ID no puede ser igual y no puede tener espacios. -->
+<!-- 6 "" -->
+
+<!--
+<!DOCTYPE listaCompra [
+<!ELEMENT listaCompra (item*)>
+<!ELEMENT item EMPTY>
+<!ATTLIST item nombre CDATA #REQUIRED>
+<!ATTLIST item cantidad CDATA #REQUIRED>
+]>
+<listaCompra>
+<item nombre="leche" cantidad="12 litros" />
+<item nombre = "pan" cantidad="3 barras de cuarto" />
+</listaCompra>
+
+-->
+
+<!--No existe ni pan, ni leche, solo item, cambiar valores y item es empty. -->
+
+
+<!--7 -->
+
+
+<!--
+<!DOCTYPE jugadoresFutbol [
+<!ELEMENT jugadoresFutbol (futbol)>
+<!ELEMENT futbol (jugador*)>
+<!ELEMENT jugador EMPTY>
+<!ATTLIST jugador nombre NMTOKENS #REQUIRED>
+<!ATTLIST jugador codigo ID #REQUIRED>
+]>
+
+<jugadoresFutbol>
+<futbol>
+<jugador nombre="Alfredo Di Stéfano" codigo="D1"/>
+<jugador nombre="Edison Arantes do Nascimento- Pelé" codigo="D2" />
+<jugador nombre="Diego Armando Maradona" codigo="D3" />
+<jugador nombre="Johan Cruyff" codigo="D4" />
+</futbol>
+</jugadoresFutbol>
+-->
+
+<!--
+<!ELEMENT jugadoresFutbol (futbol)> no estaba definido, sin esto no tiene sentido el ejercicio.
+
+el nombre al ser nnmtokens no puede llevar coma, pero si guion
+
+el codigo debe de tener algo mas que un numerico.
+-->
+
+<!-- 8 -->
+
+
+<!--
+<!DOCTYPE futbol [
+<!ELEMENT futbol ((jugador|equipo)*)>
+<!ELEMENT jugador EMPTY>
+<!ATTLIST jugador nombre NMTOKENS #REQUIRED>
+<!ATTLIST jugador codigo ID #REQUIRED>
+<!ELEMENT equipo EMPTY>
+<!ATTLIST equipo nombre CDATA #REQUIRED>
+<!ATTLIST equipo jugadores IDREFS #IMPLIED>
+]>
+<futbol>
+<jugador nombre="Alfredo Di Stéfano" codigo="ads"/>
+<jugador nombre="Edison Arantes do Nascimento" codigo="ean" />
+<jugador nombre="Diego Armando Maradona" codigo="dam" />
+<jugador nombre="Johan Cruyff" codigo="jc" />
+<equipo nombre="Società Sportiva Calcio Napoli" jugadores="dam" />
+<equipo nombre="Futbol Club Barcelona" jugadores="jc dam" />
+</futbol>
+-->
+
+<!-- 
+error de que en los equipos los jugadores tienen un codigo por su nombre, poner este, al ser IDREFS no usar coma para separarlos.
+-->
+
+
+<!-- 9 CREAR DTD -->
+
+<!--
+<!DOCTYPE reyesEspañoles [
+<!ELEMENT reyesEspañoles (rey*)>
+<!ELEMENT rey (nombre,padre,madre)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT padre (#PCDATA)>
+<!ELEMENT madre (#PCDATA)>
+]>
+<reyesEspañoles>
+<rey>
+<nombre>Felipe III</nombre>
+<padre>Felipe II</padre>
+<madre>Ana de Austria</madre>
+</rey>
+<rey>
+<nombre>Juana la Loca</nombre>
+<padre>Fernando el Católico</padre>
+<madre>Isabel la Católica</madre>
+</rey>
+<rey>
+<nombre>Carlos I</nombre>
+<padre>Felipe el Hermoso</padre>
+<madre>Juan la Loca</madre>
+</rey>
+</reyesEspañoles>
+
+-->
+
+<!-- CREAR DTD PARA MENSAJE -->
+
+
+<!--
+<!DOCTYPE mensaje [
+<!ELEMENT mensaje (de,a,texto)>
+<!ELEMENT de (#PCDATA)>
+<!ELEMENT a (#PCDATA)>
+<!ELEMENT texto (#PCDATA)>
+<!ATTLIST mensaje prioridad (normal|urgente) "urgente" >
+<!ATTLIST texto idioma CDATA #IMPLIED >
+]>
+<mensaje prioridad="urgente">
+<de>Juan Sanchez</de>
+<a>Hans van Parijs</a>
+<texto idioma="holandés">
+Hallo Hans, hoe gaat het?
+...
+</texto>
+</mensaje>
+
+-->
+
+<!-- Tienda animales -->
+
+<!--
+<!DOCTYPE tiendaAnimales [
+<!ELEMENT tiendaAnimales (animal)* >
+<!ELEMENT animal (perro) >
+<!ELEMENT perro (nombre, raza, comentarios?) >
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT raza (#PCDATA)>
+<!ELEMENT comentarios (#PCDATA) >
+<!ATTLIST perro fecha_nacimiento NMTOKEN #REQUIRED >
+<!ATTLIST perro sexo (macho|hembra) "macho">
+<!ATTLIST perro identificador ID #REQUIRED >
+<!ATTLIST perro madre IDREF #IMPLIED >
+<!ATTLIST perro padre IDREF #IMPLIED > 
+<!ATTLIST perro otrosnombres NMTOKENS #IMPLIED>
+<!ATTLIST perro veterinario CDATA #FIXED "Felix Marquez Sanz">
+]>
+<tiendaAnimales> 
+    <animal>
+        <perro fecha_nacimiento= "10-2-2" sexo="macho" identificador="T1" veterinario="Felix Marquez Sanz">
+            <nombre>Timmy</nombre>
+            <raza>Caniche</raza>
+            <comentarios>Es gracioso</comentarios>
+        </perro>
+    </animal>
+    <animal>
+        <perro fecha_nacimiento="22-2-2" sexo="hembra" identificador="T2" veterinario="Felix Marquez Sanz" padre="T1">
+            <nombre>Tina</nombre>
+            <raza>Labrador</raza>
+        </perro>
+    </animal>
+</tiendaAnimales>
+-->
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<!--FALLOS DTD NO INTERNA -->
+
+<!--
+<!DOCTYPE numeros [
+<!ELEMENT numeros (#PCDATA)>
+]>
+<numeros>
+25
+</numeros>
+-->
+
+<!--
+<!DOCTYPE letras [
+<!ELEMENT letras (letra)>
+<!ELEMENT letra (#PCDATA)>
+]>
+<letras>
+<letra>m</letra>
+
+</letras>
+-->
+
+<!--
+<!DOCTYPE colores [
+<!ELEMENT colores (color*)>
+<!ELEMENT color (#PCDATA)>
+]>
+<colores>
+<color>azul marino</color>
+<color>negro</color>
+<color>amarillo</color>
+</colores>
+-->
+
+
+<!--
+<!DOCTYPE musicos [
+<!ELEMENT musicos (musico*)>
+<!ELEMENT musico (nombre,apodo,fechaNacimiento)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT apodo (#PCDATA)>
+<!ELEMENT fechaNacimiento (#PCDATA)>
+]>
+<musicos>
+<musico>
+<nombre>Antonio Vivaldi</nombre>
+<apodo>El cura pelirrojillo</apodo>
+<fechaNacimiento>4 de marzo de 1678</fechaNacimiento>
+</musico>
+<musico>
+<nombre>Johann Sebastian Bach</nombre>
+<apodo>El viejo peluca</apodo>
+<fechaNacimiento>21 de marzo de 1685</fechaNacimiento>
+</musico> </musicos>
+-->
+
+<!--
+<!DOCTYPE agenda [
+<!ELEMENT agenda (contacto*)>
+<!ELEMENT contacto (nombre, telefonoFijo*, telefonoMovil+)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT telefonoFijo (#PCDATA)>
+<!ELEMENT telefonoMovil (#PCDATA)>
+]>
+<agenda>
+<contacto>
+<nombre>Ayuntamiento</nombre>
+<telefonoFijo>010</telefonoFijo>
+<telefonoMovil>112</telefonoMovil>
+</contacto>
+<contacto>
+<nombre>Emergencias</nombre>
+<telefonoFijo>112 (Unión Europea)</telefonoFijo>
+<telefonoMovil>Desconocido</telefonoMovil>
+
+</contacto>
+</agenda>
+-->
+
+<!--
+<!DOCTYPE efemerides [
+<!ELEMENT efemerides (efemeride)*>
+<!ELEMENT efemeride (fecha, hecho)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hecho (#PCDATA)>
+]>
+<efemerides>
+<efemeride>
+<fecha>20 de julio de 1969</fecha>
+<hecho>Llegada del hombre a la Luna</hecho>
+</efemeride>
+<efemeride>
+<fecha>12 de octubre de 1492</fecha>
+<hecho>Llegada de Colón a América</hecho>
+</efemeride>
+<efemeride>
+<fecha>6 de abril de 1909</fecha>
+<hecho>llegada de Robert Peary al Polo Norte</hecho>
+</efemeride>
+</efemerides>
+-->
+
+<!--
+<!DOCTYPE aeropuertos [
+<!ELEMENT aeropuertos (aeropuerto+)>
+<!ELEMENT aeropuerto (nombre|cerrado)+>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT cerrado EMPTY>
+]>
+
+<aeropuertos>
+<aeropuerto>
+<nombre>Berlín Schönefeld (SFX)</nombre>
+</aeropuerto>
+<aeropuerto>
+<nombre>Berlín Tempelhof (THF)</nombre>
+<cerrado />
+</aeropuerto>
+</aeropuertos>
+-->
+
+<!--
+<!DOCTYPE vuelos [
+<!ELEMENT vuelos (vuelo*)>
+<!ELEMENT vuelo ((origen, destino)|(destino ,origen))>
+<!ELEMENT origen (#PCDATA)>
+<!ELEMENT destino (#PCDATA)>
+]>
+
+<vuelos>
+<vuelo>
+<origen>Valencia (VLC)</origen>
+<destino>Londres Heathrow (LHR)</destino>
+</vuelo>
+<vuelo>
+<destino>Berlín Schönefeld (SFX)</destino>
+<origen>Paris Charles de Gaulle (CDG)</origen>
+</vuelo>
+</vuelos>
+-->
+
+
+<!--
+<!DOCTYPE contabilidad [
+<!ELEMENT contabilidad (apunte*)>
+<!ELEMENT apunte ((ingreso | gasto)* , fecha, cantidad, concepto)>
+<!ELEMENT ingreso EMPTY >
+<!ELEMENT gasto EMPTY >
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT cantidad (#PCDATA)>
+<!ELEMENT concepto (#PCDATA)>
+]>
+
+<contabilidad>
+<apunte>
+<ingreso />
+<fecha>24 de febrero de 2011</fecha>
+<cantidad>1800,00 €</cantidad>
+<concepto>Salario</concepto>
+</apunte>
+<apunte>
+<gasto />
+<fecha>28 de febrero de 2011</fecha>
+<cantidad>74,25 €</cantidad>
+<concepto>Recibo luz</concepto>
+</apunte>
+</contabilidad>
+
+-->
+
+<!--
+<peliculas>
+<pelicula>
+  <titulo>Con faldas y a lo loco</titulo>
+  <director>Billy Wilder</director>
+</pelicula>
+<pelicula>
+  <director>Leo McCarey</director>
+  <titulo>Sopa de ganso</titulo>
+  <autor>barto</autor>
+</pelicula>
+</peliculas>
+
+-->
+
+<!--
+<deportistas>
+  <deportista>
+      <deporte>Atletismo</deporte>
+    <nombre>Jesse Owens</nombre>
+  </deportista>
+  <deportista>
+    <deporte>Natacion</deporte>
+    <nombre>Mark Spitz</nombre>
+  </deportista>
+</deportistas>
+-->
+
+<!--
+<texto>
+  <Titulo>XML explicado a los niños</Titulo>
+  <párrafo>El XML define cómo crear 
+  lenguajes de marcas.
+  </párrafo>
+  <párrafo>Las marcas se añaden a un documento de texto 
+  para añadir información.
+  </párrafo>
+  <http>www.example.org</http>
+</texto>
+-->
+
+<!--
+<geografia_mundial>
+  <paises>
+    <pais>España</pais>
+    <continente>Europa</continente>
+    <capital>Madrid</capital>
+  </paises>
+</geografia_mundial>
+-->
+
+<!--
+<programas>
+  <programa nombre="Firefox" licencia="GPL" />
+  <programa nombre="OpenOffice.org" licencia="LGPL" />
+  <programa nombre="Inkscape" licencia="GPL" />
+</programas>
+-->
+
+<!--
+<mundiales-de-futbol>
+  <mundial>
+    <pais>ESPAÑA</pais>
+    <año>1982 </año>
+  </mundial>
+</mundiales-de-futbol>
+-->
+<!--
+<mediosDeTransporte>
+  <bicicleta velocidad="v -100km/h" />
+  <patinete velocidad_maxima="50 km/h"/>
+</mediosDeTransporte>
+-->

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+
+  <!-- Atributo reutilizable -->
+  <xs:attribute name="barrio" type="xs:string"/>
+
+  <!-- Puntuación 0..10 -->
+  <xs:simpleType name="PuntuacionType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Documento (ajusta patrón si quieres DNI/NIE estrictos) -->
+  <xs:simpleType name="DocumentoType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9\-]{3,20}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- trianero = boolean + atributo barrio obligatorio -->
+  <xs:complexType name="TrianeroType">
+    <xs:simpleContent>
+      <xs:extension base="xs:boolean">
+        <xs:attribute ref="barrio" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Persona -->
+  <xs:complexType name="PersonaType">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:string"/>
+      <xs:element name="apellido" type="xs:string"/>
+      <xs:element name="fechanacimiento" type="xs:date"/>
+      <xs:element name="numerodocumento" type="DocumentoType"/>
+      <xs:element name="trianero" type="TrianeroType"/>
+    </xs:sequence>
+    <xs:attribute name="puntuacion" type="PuntuacionType"/>
+  </xs:complexType>
+
+  <!-- Raíz -->
+  <xs:element name="personas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="persona" type="PersonaType" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+
+      <!-- numerodocumento debe ser único -->
+      <xs:unique name="uniqueNumerodocumento">
+        <xs:selector xpath="persona"/>
+        <xs:field xpath="numerodocumento"/>
+      </xs:unique>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

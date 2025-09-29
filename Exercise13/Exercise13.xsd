@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+    <xs:element name="persona">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string" minOccurs="1"
+                            maxOccurs="unbounded"/>
+                <xs:element name="apellido" type="xs:string" minOccurs="2"
+                            maxOccurs="2"/>
+                <xs:element name="fechanacimiento" type="xs:date"
+                            maxOccurs="1"/>
+                <xs:element name="numerodocumento" type="xs:int"/>
+                <xs:element name="trianero" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+
+<!--Los xsd pueden ser de tipo: float, integer, boolean, 
+dateTime, string, anyURI (cualquier texto de URI bien formado delimitado por 
+corches angulares), double, decimal, rdf:XMLLiteral ( datos literales que tienen 
+la misma representacion que el tipo de datos de serie) -->
+
+
+<!--xs: sequence especifica que los elementos secundarios deben 
+aparecer en una secuencia. Cada elemento hijo aparece una vez de forma predeterminada -->
+
+
+<!--
+xs: choice permite que solo uno de los elementos 
+contenidos en la declaración esté presente dentro del elemento contenedor -->
+
+<!--El elemento de elección de esquema XML permite que solo uno de los elementos contenidos 
+en la declaración <choice> esté presente dentro del elemento contenedor -->
+
+<!--El elemento all especifica que los elementos secundarios pueden aparecer en cualquier orden 
+y que cada elemento secundario puede aparecer cero o una vez. -->

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Casas_Rurales
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='CasasRurales.xsd'>
+ <Casa>
+		<Dirección>
+			Calle Las Palmas 23. La Sagra. Toledo
+		</Dirección>
+		<Descripción>
+			Se trata de una casa del siglo XVII, …
+		</Descripción>
+		<Estado>
+			El estado de conservación es magnífico, …
+		</Estado>
+		<Tamaño>
+			La casa tiene 259 metros cuadrados, …
+		</Tamaño>
+	</Casa>
+	<Casa>
+		<Dirección>
+			Calle Or 5, Fregenal de la Sierra. Badajoz
+		</Dirección>
+		<Descripción>
+			De arquitectura espectacular la casa
+		</Descripción>
+		<Estado>
+			Recientemente restaurada su estado actual es
+		</Estado>
+		<Tamaño>La superficie habitable es de ...</Tamaño>
+	</Casa>
+</Casas_Rurales>
