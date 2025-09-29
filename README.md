@@ -1,2 +1,8 @@
-# xml-xsd-xslt-showcase
-Validated XML datasets with XSD and HTML transforms via XSLT, plus CI to test schemas and render outputs
+# XML · XSD · XSLT Showcase
+
+A curated set of **XML** examples validated with **XSD** and transformed to **HTML** using **XSLT**.
+
+## Run locally
+Validate with xmllint:
+```bash
+xmllint --noout --schema path/to/schema.xsd path/to/data.xml
